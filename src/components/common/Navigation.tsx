@@ -65,18 +65,18 @@ export const Navigation: React.FC<NavigationProps> = ({
             : 'bg-gradient-to-b from-black/80 via-black/30 to-transparent py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           {/* Monogram Brand */}
           <a
             href="#hero"
-            className="flex items-center space-x-3 group cursor-pointer"
+            className="flex items-center space-x-3 group cursor-pointer shrink-0 mr-2 md:mr-6 lg:mr-8"
           >
-            <div className="w-12 h-12 sm:w-14 sm:h-14 p-1.5 rounded-full border-2 border-amber-400/60 bg-gradient-to-br from-amber-400/25 via-maroon-900/50 to-amber-950/70 flex items-center justify-center shadow-[0_0_15px_rgba(212,175,55,0.35)] group-hover:border-amber-300 group-hover:scale-105 transition-all">
-              <span className="font-serif font-bold text-amber-300 text-base sm:text-lg tracking-wider drop-shadow-sm">
+            <div className="h-11 sm:h-12 min-w-[48px] px-3.5 rounded-full border-2 border-amber-400/70 bg-gradient-to-br from-amber-400/25 via-maroon-900/60 to-amber-950/80 flex items-center justify-center shadow-[0_0_15px_rgba(212,175,55,0.35)] group-hover:border-amber-300 group-hover:scale-105 transition-all shrink-0">
+              <span className="font-serif font-bold text-amber-300 text-xs sm:text-sm tracking-wider whitespace-nowrap drop-shadow-sm flex items-center justify-center leading-none">
                 {monogram}
               </span>
             </div>
-            <span className="font-serif tracking-widest text-xs sm:text-sm uppercase text-amber-100/90 hidden sm:inline-block font-semibold">
+            <span className="font-serif tracking-widest text-xs sm:text-sm uppercase text-amber-100/90 hidden sm:inline-block font-semibold whitespace-nowrap">
               {lang === 'ta'
                 ? (couple?.tamilBrideName && couple?.tamilGroomName ? `${couple.tamilBrideName} & ${couple.tamilGroomName}` : 'அனன்யா & அர்ஜுன்')
                 : (couple?.brideShortName && couple?.groomShortName ? `${couple.brideShortName} & ${couple.groomShortName}` : 'Ananya & Arjun')}
@@ -84,12 +84,12 @@ export const Navigation: React.FC<NavigationProps> = ({
           </a>
 
           {/* Desktop Nav Items */}
-          <nav className="hidden md:flex items-center space-x-6 lg:space-x-7">
+          <nav className="hidden lg:flex items-center space-x-5 xl:space-x-7 shrink-0">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-xs uppercase tracking-widest text-amber-100/80 hover:text-amber-300 transition-colors font-medium relative group py-1"
+                className="text-xs uppercase tracking-widest text-amber-100/80 hover:text-amber-300 transition-colors font-medium relative group py-1 whitespace-nowrap"
               >
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-gradient-to-r from-amber-400 to-amber-200 transition-all duration-300 group-hover:w-full" />
