@@ -121,7 +121,8 @@ export type DivinePairThemeId =
   | 'murugan-valli-deivanai'
   | 'andal-alagar'
   | 'venkateswara-padmavathi'
-  | 'sita-rama';
+  | 'sita-rama'
+  | 'custom';
 
 export interface DivinePairConfig {
   id: DivinePairThemeId;

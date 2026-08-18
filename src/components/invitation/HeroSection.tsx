@@ -147,6 +147,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                       </button>
                     );
                   })}
+
+                  {/* Custom Deity Option in Dropdown */}
+                  {(theme.customDivinePair?.enabled || theme.divinePair === 'custom') && (
+                    <button
+                      onClick={() => handleSelectDivinePair('custom')}
+                      className={`w-full p-2 rounded-xl text-left transition-all flex items-center justify-between text-xs font-serif ${
+                        activeDivinePair === 'custom'
+                          ? 'bg-amber-500/25 border border-amber-400/60 text-amber-100 font-bold'
+                          : 'text-amber-200/80 hover:bg-amber-950/60 hover:text-white'
+                      }`}
+                    >
+                      <div className="flex flex-col">
+                        <span className="text-xs">
+                          ✨ {lang === 'ta' ? (theme.customDivinePair?.tamilName || 'விருப்ப குலதெய்வம்') : (theme.customDivinePair?.name || 'Custom Family Deity')}
+                        </span>
+                        <span className="text-[10px] text-amber-300/60">
+                          {lang === 'ta' ? (theme.customDivinePair?.tamilTemple || 'குடும்ப திருக்கோவில்') : (theme.customDivinePair?.temple || 'Family Shrine')}
+                        </span>
+                      </div>
+                      {activeDivinePair === 'custom' && <span className="text-amber-400 text-xs">✓</span>}
+                    </button>
+                  )}
                 </div>
               </div>
             )}

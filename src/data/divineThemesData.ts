@@ -98,7 +98,30 @@ export const divinePairsList: DivinePairConfig[] = [
   },
 ];
 
+export const customDivineDefault: DivinePairConfig = {
+  id: 'custom',
+  name: 'Custom Family Deity / Kuladeivam',
+  tamilName: 'விருப்ப குலதெய்வம் / இஷ்ட தெய்வம்',
+  temple: 'Family Ancestral Shrine / Temple',
+  tamilTemple: 'குடும்ப அருள்மிகு திருக்கோவில்',
+  invocation: '॥ Sri Kuladeivam Thunai ✦ Ishta Deivam Thunai ॥',
+  tamilInvocation: '॥ ஸ்ரீ குலதெய்வம் துணை ✦ இஷ்ட தெய்வம் துணை ॥',
+  shloka: 'Sarva Mangala Dayini | Kuladeivatha Prasadam | Shubh Vivaha Mangalam ॥',
+  tamilShloka: 'குலதெய்வத்தின் பூரண திருவருளோடும் பெரியோர்களின் ஆசிகளோடும் இணையும் திருமண நன்னாள் ॥',
+  primaryBgGradient: 'from-[#1e0a12] via-[#330c1e] to-[#12040a]',
+  accentColor: '#EAB308',
+  symbol: 'trishul-lotus',
+  badgeLabel: 'Kuladeivam Auspicious Blessings',
+  tamilBadgeLabel: 'குலதெய்வ மங்கள நல்வாழ்த்துகள்',
+  description: 'Custom family deity configuration with personalized sacred names, mantras, and ancestral temple invocations.',
+  tamilDescription: 'உங்கள் குடும்ப இஷ்ட தெய்வம் மற்றும் குலதெய்வத்தின் பிரத்யேக திருப்பெயர்கள் மற்றும் மந்திரங்கள்.',
+  image: '/images/gods/meenakshi-sundareswarar.jpg',
+};
+
 export const getDivinePairConfig = (id?: DivinePairThemeId): DivinePairConfig => {
+  if (id === 'custom') {
+    return customDivineDefault;
+  }
   const found = divinePairsList.find((item) => item.id === id);
   return found || divinePairsList[0];
 };
@@ -117,21 +140,22 @@ export const resolveDivinePairInfo = (
     tamilTemple?: string;
   }
 ): DivinePairConfig => {
-  const base = getDivinePairConfig(id);
-  if (!customDivine || !customDivine.enabled) {
-    return base;
+  const base = id === 'custom' ? customDivineDefault : getDivinePairConfig(id);
+  if (id === 'custom' || (customDivine && customDivine.enabled)) {
+    return {
+      ...base,
+      name: customDivine?.name?.trim() || base.name,
+      tamilName: customDivine?.tamilName?.trim() || base.tamilName,
+      invocation: customDivine?.invocation?.trim() || base.invocation,
+      tamilInvocation: customDivine?.tamilInvocation?.trim() || base.tamilInvocation,
+      shloka: customDivine?.shloka?.trim() || base.shloka,
+      tamilShloka: customDivine?.tamilShloka?.trim() || base.tamilShloka,
+      temple: customDivine?.temple?.trim() || base.temple,
+      tamilTemple: customDivine?.tamilTemple?.trim() || base.tamilTemple,
+    };
   }
 
-  return {
-    ...base,
-    name: customDivine.name?.trim() || base.name,
-    tamilName: customDivine.tamilName?.trim() || base.tamilName,
-    invocation: customDivine.invocation?.trim() || base.invocation,
-    tamilInvocation: customDivine.tamilInvocation?.trim() || base.tamilInvocation,
-    shloka: customDivine.shloka?.trim() || base.shloka,
-    tamilShloka: customDivine.tamilShloka?.trim() || base.tamilShloka,
-    temple: customDivine.temple?.trim() || base.temple,
-    tamilTemple: customDivine.tamilTemple?.trim() || base.tamilTemple,
-  };
+  return base;
 };
+
 

@@ -210,6 +210,68 @@ export const ThemeBrandingEditor: React.FC<ThemeBrandingEditorProps> = ({ config
               </div>
             );
           })}
+
+          {/* 6th Card: Custom Family Deity Card */}
+          <div
+            onClick={() => {
+              audioService.playTempleBellSound();
+              onUpdate((prev) => ({
+                ...prev,
+                theme: {
+                  ...prev.theme,
+                  divinePair: 'custom',
+                  customDivinePair: {
+                    ...prev.theme.customDivinePair,
+                    enabled: true,
+                    name: prev.theme.customDivinePair?.name || 'Custom Family Deity / Kuladeivam',
+                    tamilName: prev.theme.customDivinePair?.tamilName || 'விருப்ப குலதெய்வம் / இஷ்ட தெய்வம்',
+                    invocation: prev.theme.customDivinePair?.invocation || '॥ Sri Kuladeivam Thunai ॥',
+                    tamilInvocation: prev.theme.customDivinePair?.tamilInvocation || '॥ ஸ்ரீ குலதெய்வம் துணை ॥',
+                  },
+                },
+              }));
+            }}
+            className={`p-4 rounded-2xl border cursor-pointer transition-all flex flex-col justify-between space-y-3 ${
+              theme.divinePair === 'custom' || theme.customDivinePair?.enabled
+                ? 'border-amber-400 bg-amber-500/20 shadow-xl shadow-amber-500/20 ring-2 ring-amber-400/70'
+                : 'border-dashed border-amber-400/40 bg-black/40 hover:border-amber-300 hover:bg-black/60'
+            }`}
+          >
+            <div>
+              <div className="flex items-start justify-between mb-1">
+                <span className="font-serif text-sm font-bold text-amber-100 flex items-center gap-1.5">
+                  <span className="text-base">✨</span>
+                  <span>
+                    {theme.customDivinePair?.name?.trim() || '+ Custom Family Deity / Kuladeivam'}
+                  </span>
+                </span>
+                {(theme.divinePair === 'custom' || theme.customDivinePair?.enabled) ? (
+                  <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-maroon-950 font-serif text-[10px] font-bold shadow">
+                    ACTIVE
+                  </span>
+                ) : (
+                  <span className="px-2 py-0.5 rounded-full bg-amber-950/60 border border-amber-500/30 text-amber-300 font-serif text-[10px]">
+                    + ADD DATA
+                  </span>
+                )}
+              </div>
+              <span className="text-xs text-amber-300 font-medium block">
+                {theme.customDivinePair?.tamilName?.trim() || 'விருப்ப குலதெய்வம் / இஷ்ட தெய்வம்'}
+              </span>
+              <span className="text-[10px] text-amber-400/70 block mt-0.5">
+                📍 {theme.customDivinePair?.tamilTemple?.trim() || 'குடும்ப திருக்கோவில் / ஸ்தலம்'}
+              </span>
+            </div>
+
+            <div className="p-2.5 rounded-xl bg-black/50 border border-amber-500/20 text-[11px] text-amber-200/90 font-serif italic">
+              "{theme.customDivinePair?.tamilInvocation?.trim() || '॥ ஸ்ரீ குலதெய்வம் துணை ✦ இஷ்ட தெய்வம் துணை ॥'}"
+            </div>
+
+            <p className="text-[11px] text-amber-100/70 font-light flex items-center justify-between">
+              <span>Personalized deity name, invocation, and temple shrine data.</span>
+              <span className="text-amber-400 text-xs font-serif font-bold">✏️ Edit Below ↓</span>
+            </p>
+          </div>
         </div>
 
         {/* Centerpiece Selection (God Portrait vs 3D Lamp vs Both) */}
