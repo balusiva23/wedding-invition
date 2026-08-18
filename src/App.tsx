@@ -206,6 +206,7 @@ export function App() {
       {/* Top Floating Glass Navigation */}
       <Navigation
         monogram={config.couple.monogram}
+        couple={config.couple}
         onOpenShare={() => setShowShare(true)}
         onOpenAdmin={() => setMode('admin')}
         currentMode={mode}

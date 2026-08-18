@@ -268,6 +268,17 @@ export interface WeddingConfig {
       | 'kongu-tradition'
       | 'kanyakumari-dawn';
     divinePair?: DivinePairThemeId;
+    customDivinePair?: {
+      enabled?: boolean;
+      name?: string;
+      tamilName?: string;
+      invocation?: string;
+      tamilInvocation?: string;
+      shloka?: string;
+      tamilShloka?: string;
+      temple?: string;
+      tamilTemple?: string;
+    };
     centerpieceType?: 'god-portrait' | 'lamp-3d' | 'god-and-lamp';
     customGodImageUrl?: string;
     primaryColor: string;

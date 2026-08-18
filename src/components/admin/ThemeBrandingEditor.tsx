@@ -274,9 +274,191 @@ export const ThemeBrandingEditor: React.FC<ThemeBrandingEditorProps> = ({ config
                   },
                 }))
               }
-              placeholder="Leave blank to use default theme portrait or paste image link"
+              placeholder="Leave blank to use default theme portrait or paste image link (e.g., https://...)"
               className="w-full px-3 py-2 rounded-xl bg-black/60 border border-amber-500/30 text-xs text-amber-100 placeholder-amber-100/30 focus:outline-none focus:border-amber-400"
             />
+          </div>
+
+          {/* Custom Divine Names & Invocations Section */}
+          <div className="mt-4 p-4 rounded-xl bg-black/60 border border-amber-500/30 space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="text-xs font-serif font-bold text-amber-300 block">
+                  Custom Divine Names & Invocations (விருப்ப தெய்வ பெயர்கள் & மந்திரங்கள்)
+                </span>
+                <span className="text-[11px] text-amber-100/60 font-light">
+                  Override preset titles with your family's Ishta Deivam / Kuladeivam names.
+                </span>
+              </div>
+              <label className="relative inline-flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  checked={theme.customDivinePair?.enabled || false}
+                  onChange={(e) =>
+                    onUpdate((prev) => ({
+                      ...prev,
+                      theme: {
+                        ...prev.theme,
+                        customDivinePair: {
+                          ...prev.theme.customDivinePair,
+                          enabled: e.target.checked,
+                        },
+                      },
+                    }))
+                  }
+                  className="sr-only peer"
+                />
+                <div className="w-9 h-5 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-amber-500"></div>
+              </label>
+            </div>
+
+            {theme.customDivinePair?.enabled && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 border-t border-amber-500/15 animate-fadeIn">
+                <div>
+                  <label className="text-[11px] font-serif text-amber-200 block mb-1">
+                    Tamil Divine Name (தமிழ் தெய்வ பெயர்)
+                  </label>
+                  <input
+                    type="text"
+                    value={theme.customDivinePair?.tamilName || ''}
+                    onChange={(e) =>
+                      onUpdate((prev) => ({
+                        ...prev,
+                        theme: {
+                          ...prev.theme,
+                          customDivinePair: {
+                            ...prev.theme.customDivinePair,
+                            tamilName: e.target.value,
+                          },
+                        },
+                      }))
+                    }
+                    placeholder="எ.கா: அருள்மிகு சிவ பார்வதி திருக்கல்யாணம்"
+                    className="w-full px-3 py-1.5 rounded-lg bg-black/80 border border-amber-500/30 text-xs text-amber-100 focus:outline-none focus:border-amber-400"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[11px] font-serif text-amber-200 block mb-1">
+                    English Divine Name
+                  </label>
+                  <input
+                    type="text"
+                    value={theme.customDivinePair?.name || ''}
+                    onChange={(e) =>
+                      onUpdate((prev) => ({
+                        ...prev,
+                        theme: {
+                          ...prev.theme,
+                          customDivinePair: {
+                            ...prev.theme.customDivinePair,
+                            name: e.target.value,
+                          },
+                        },
+                      }))
+                    }
+                    placeholder="e.g. Lord Shiva & Goddess Parvathi"
+                    className="w-full px-3 py-1.5 rounded-lg bg-black/80 border border-amber-500/30 text-xs text-amber-100 focus:outline-none focus:border-amber-400"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[11px] font-serif text-amber-200 block mb-1">
+                    Tamil Invocation Header (தலைப்பு மந்திரம்)
+                  </label>
+                  <input
+                    type="text"
+                    value={theme.customDivinePair?.tamilInvocation || ''}
+                    onChange={(e) =>
+                      onUpdate((prev) => ({
+                        ...prev,
+                        theme: {
+                          ...prev.theme,
+                          customDivinePair: {
+                            ...prev.theme.customDivinePair,
+                            tamilInvocation: e.target.value,
+                          },
+                        },
+                      }))
+                    }
+                    placeholder="எ.கா: ॥ ஓம் நமச்சிவாய ✦ குலதெய்வம் துணை ॥"
+                    className="w-full px-3 py-1.5 rounded-lg bg-black/80 border border-amber-500/30 text-xs text-amber-100 focus:outline-none focus:border-amber-400"
+                  />
+                </div>
+
+                <div>
+                  <label className="text-[11px] font-serif text-amber-200 block mb-1">
+                    English Invocation Header
+                  </label>
+                  <input
+                    type="text"
+                    value={theme.customDivinePair?.invocation || ''}
+                    onChange={(e) =>
+                      onUpdate((prev) => ({
+                        ...prev,
+                        theme: {
+                          ...prev.theme,
+                          customDivinePair: {
+                            ...prev.theme.customDivinePair,
+                            invocation: e.target.value,
+                          },
+                        },
+                      }))
+                    }
+                    placeholder="e.g. ॥ Om Namah Shivaya ✦ Shiva Parvathi Thunai ॥"
+                    className="w-full px-3 py-1.5 rounded-lg bg-black/80 border border-amber-500/30 text-xs text-amber-100 focus:outline-none focus:border-amber-400"
+                  />
+                </div>
+
+                <div className="md:col-span-2">
+                  <label className="text-[11px] font-serif text-amber-200 block mb-1">
+                    Tamil Sacred Shloka / Blessing (மங்கள சுலோகம் / வாழ்த்து)
+                  </label>
+                  <input
+                    type="text"
+                    value={theme.customDivinePair?.tamilShloka || ''}
+                    onChange={(e) =>
+                      onUpdate((prev) => ({
+                        ...prev,
+                        theme: {
+                          ...prev.theme,
+                          customDivinePair: {
+                            ...prev.theme.customDivinePair,
+                            tamilShloka: e.target.value,
+                          },
+                        },
+                      }))
+                    }
+                    placeholder="எ.கா: சிவ பார்வதி திருவருளால் தொடங்கும் மங்களத் திருநாள் ॥"
+                    className="w-full px-3 py-1.5 rounded-lg bg-black/80 border border-amber-500/30 text-xs text-amber-100 focus:outline-none focus:border-amber-400"
+                  />
+                </div>
+
+                <div className="md:col-span-2">
+                  <label className="text-[11px] font-serif text-amber-200 block mb-1">
+                    Tamil Temple / Kuladeivam Shrine (திருக்கோவில் / ஸ்தலம்)
+                  </label>
+                  <input
+                    type="text"
+                    value={theme.customDivinePair?.tamilTemple || ''}
+                    onChange={(e) =>
+                      onUpdate((prev) => ({
+                        ...prev,
+                        theme: {
+                          ...prev.theme,
+                          customDivinePair: {
+                            ...prev.theme.customDivinePair,
+                            tamilTemple: e.target.value,
+                          },
+                        },
+                      }))
+                    }
+                    placeholder="எ.கா: அருள்மிகு காளஹஸ்தீஸ்வரர் திருக்கோவில்"
+                    className="w-full px-3 py-1.5 rounded-lg bg-black/80 border border-amber-500/30 text-xs text-amber-100 focus:outline-none focus:border-amber-400"
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
 

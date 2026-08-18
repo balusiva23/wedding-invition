@@ -145,6 +145,17 @@ export const defaultWeddingConfig: WeddingConfig = {
   theme: {
     preset: 'royal-maroon',
     divinePair: 'meenakshi-sundareswarar',
+    customDivinePair: {
+      enabled: false,
+      name: '',
+      tamilName: '',
+      invocation: '',
+      tamilInvocation: '',
+      shloka: '',
+      tamilShloka: '',
+      temple: '',
+      tamilTemple: '',
+    },
     centerpieceType: 'god-portrait',
     primaryColor: '#7E2230',
     secondaryColor: '#C59A27',

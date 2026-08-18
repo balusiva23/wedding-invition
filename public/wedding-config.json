@@ -1,29 +1,37 @@
 {
   "version": "1.0",
-  "exportedAt": "2026-08-18T15:28:06.531Z",
+  "exportedAt": "2026-08-18T17:09:29.664Z",
   "config": {
     "couple": {
       "brideFullName": "Ananya Sundaram",
       "groomFullName": "Arjun Natarajan",
       "brideShortName": "Ananya",
       "groomShortName": "Arjun",
+      "tamilBrideName": "அனன்யா",
+      "tamilGroomName": "அர்ஜுன்",
       "brideParents": "Smt. Jayanthi & Sri. Sundaram Ramachandran",
       "groomParents": "Smt. Meenakshi & Sri. Natarajan Krishnaswamy",
       "brideOrigin": "Chennai, Tamil Nadu",
       "groomOrigin": "Bengaluru, Karnataka",
       "heroTagline": "Two Souls, One Divine Journey",
       "heroSubtitle": "Together with our families, we joyfully invite you to celebrate the sacred union of our hearts",
+      "tamilTagline": "இரு மனங்கள் இணையும் மங்களத் திருநாள்",
+      "tamilSubtitle": "எங்கள் குடும்பத்தாருடன் இணைந்து, எங்கள் இல்லத் திருமண நன்னாளுக்கு தங்களை அன்புடன் அழைக்கிறோம்",
       "invitationQuote": "In the presence of Agni, elders, and loved ones, we bind our lives in timeless love, laughter, and lifelong friendship.",
+      "tamilInvitationQuote": "புனித அக்னி சாட்சியாக, பெரியோர்களின் நல்லாசிகளுடன் அன்பும் பாசமும் நிறைந்த எங்களது புதிய வாழ்வை தொடங்குகிறோம்.",
       "monogram": "A ✦ A",
       "weddingDate": "2026-12-12T07:30:00+05:30",
       "muhurthamTime": "07:30 AM – 09:00 AM (Dhanur Lagnam)",
+      "tamilMuhurthamTime": "காலை 07:30 – 09:00 மணி (தனுர் லக்னம்)",
       "timezone": "Asia/Kolkata",
       "heroImage": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=1600&auto=format&fit=crop",
       "couplePhoto": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1200&auto=format&fit=crop"
     },
     "venue": {
       "name": "The Leela Palace Chennai",
+      "tamilName": "தி லீலா பேலஸ், சென்னை",
       "hall": "Grand Ballroom & Royal Sea View Mandapam",
+      "tamilHall": "கிராண்ட் பால்ரூம் & ராயல் சீ வியூ மண்டபம்",
       "address": "Adyar Seaface, MRC Nagar, Raja Annamalai Puram",
       "city": "Chennai",
       "state": "Tamil Nadu",
@@ -45,11 +53,54 @@
     },
     "music": {
       "enabled": true,
-      "title": "Thirukkalyanam & Thaali Muhurtham",
-      "artist": "South Indian Wedding Masters",
-      "audioUrl": "https://cdn.pixabay.com/download/audio/2021/08/04/audio_349d74944d.mp3?filename=indian-traditional-sitar-and-tabla-11756.mp3",
-      "defaultVolume": 0.25
+      "title": "Mangala Vathiyam (Nadaswaram & Thavil)",
+      "artist": "Auspicious Tamil Wedding Melody",
+      "audioUrl": "/audio/track-1-nadaswaram.mp3",
+      "defaultVolume": 0.6,
+      "playlist": [
+        {
+          "id": "track-1",
+          "title": "Mangala Vathiyam (Nadaswaram & Thavil)",
+          "tamilTitle": "மங்கள வாத்தியம் (நாதஸ்வரம் & தவில்)",
+          "artist": "Traditional Temple Wedding Melodies",
+          "category": "Nadaswaram",
+          "audioUrl": "/audio/track-1-nadaswaram.mp3"
+        },
+        {
+          "id": "track-2",
+          "title": "Kalyana Samayal Saadham (Veena Classical)",
+          "tamilTitle": "கல்யாண சமையல் சாதம் (வீணை இசை)",
+          "artist": "Carnatic Strings Symphony",
+          "category": "Carnatic",
+          "audioUrl": "/audio/track-2-veena.mp3"
+        },
+        {
+          "id": "track-3",
+          "title": "Thirukkalyanam & Thaali Muhurtham",
+          "tamilTitle": "திருக்கல்யாணம் & மாங்கல்ய தாரணம்",
+          "artist": "South Indian Wedding Masters",
+          "category": "Devotional",
+          "audioUrl": "/audio/track-3-thirukkalyanam.mp3"
+        },
+        {
+          "id": "track-4",
+          "title": "Sita Kalyana Vaibhogame (Flute & Tambura)",
+          "tamilTitle": "சீதா கல்யாண வைபோகமே (புல்லாங்குழல்)",
+          "artist": "Carnatic Devotional Harmony",
+          "category": "Instrumental",
+          "audioUrl": "/audio/track-4-flute.mp3"
+        },
+        {
+          "id": "track-5",
+          "title": "Carnatic Fusion & Mridangam Delight",
+          "tamilTitle": "கர்நாடக இசை சங்கமம் & மிருதங்கம்",
+          "artist": "Royal Sangeet Ensemble",
+          "category": "Fusion",
+          "audioUrl": "/audio/track-5-fusion.mp3"
+        }
+      ]
     },
+    "adminPin": "2000",
     "dressCode": {
       "enabled": true,
       "title": "Traditional South Indian Elegance",
@@ -90,17 +141,32 @@
       "instagramHashtag": "#AnuWedsArjun #A2Forever"
     },
     "theme": {
-      "preset": "madurai-meenakshi",
-      "primaryColor": "#880827",
-      "secondaryColor": "#EAA023",
+      "preset": "royal-maroon",
+      "divinePair": "meenakshi-sundareswarar",
+      "customDivinePair": {
+        "enabled": false,
+        "name": "",
+        "tamilName": "",
+        "invocation": "",
+        "tamilInvocation": "",
+        "shloka": "",
+        "tamilShloka": "",
+        "temple": "",
+        "tamilTemple": ""
+      },
+      "centerpieceType": "god-portrait",
+      "primaryColor": "#7E2230",
+      "secondaryColor": "#C59A27",
       "accentGold": "#D4AF37",
-      "bgDark": "#1A0307",
+      "bgDark": "#120508",
       "bgLight": "#FCFBF7",
       "fontHeading": "Cinzel Decorative",
       "fontBody": "Plus Jakarta Sans",
-      "particlesIntensity": "high",
+      "particlesIntensity": "medium",
       "soundEffectsEnabled": true,
-      "divinePair": "murugan-valli-deivanai"
+      "showThoranam": true,
+      "showKolamBorders": true,
+      "showDivinePrabhavali": true
     },
     "sections": {
       "hero": true,
@@ -108,7 +174,7 @@
       "couple": true,
       "story": true,
       "events": true,
-      "ceremonies": false,
+      "ceremonies": true,
       "family": true,
       "gallery": true,
       "video": true,
@@ -433,26 +499,6 @@
         "featured": false,
         "order": 6,
         "enabled": true
-      },
-      {
-        "id": "g-1787061732074",
-        "src": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1200&auto=format&fit=crop",
-        "title": "New Memory",
-        "caption": "A cherished moment...",
-        "category": "Pre-Wedding",
-        "featured": false,
-        "order": 7,
-        "enabled": true
-      },
-      {
-        "id": "g-1787061736961",
-        "src": "https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1200&auto=format&fit=crop",
-        "title": "New Memory",
-        "caption": "A cherished moment...",
-        "category": "Pre-Wedding",
-        "featured": false,
-        "order": 8,
-        "enabled": true
       }
     ],
     "accommodations": [
@@ -533,8 +579,7 @@
         "side": "Coordinator",
         "enabled": true
       }
-    ],
-    "adminPin": "2000"
+    ]
   },
   "wishes": [
     {

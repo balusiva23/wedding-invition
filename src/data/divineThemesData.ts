@@ -102,3 +102,36 @@ export const getDivinePairConfig = (id?: DivinePairThemeId): DivinePairConfig =>
   const found = divinePairsList.find((item) => item.id === id);
   return found || divinePairsList[0];
 };
+
+export const resolveDivinePairInfo = (
+  id?: DivinePairThemeId,
+  customDivine?: {
+    enabled?: boolean;
+    name?: string;
+    tamilName?: string;
+    invocation?: string;
+    tamilInvocation?: string;
+    shloka?: string;
+    tamilShloka?: string;
+    temple?: string;
+    tamilTemple?: string;
+  }
+): DivinePairConfig => {
+  const base = getDivinePairConfig(id);
+  if (!customDivine || !customDivine.enabled) {
+    return base;
+  }
+
+  return {
+    ...base,
+    name: customDivine.name?.trim() || base.name,
+    tamilName: customDivine.tamilName?.trim() || base.tamilName,
+    invocation: customDivine.invocation?.trim() || base.invocation,
+    tamilInvocation: customDivine.tamilInvocation?.trim() || base.tamilInvocation,
+    shloka: customDivine.shloka?.trim() || base.shloka,
+    tamilShloka: customDivine.tamilShloka?.trim() || base.tamilShloka,
+    temple: customDivine.temple?.trim() || base.temple,
+    tamilTemple: customDivine.tamilTemple?.trim() || base.tamilTemple,
+  };
+};
+

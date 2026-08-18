@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Share2, Sparkles, Settings, Globe, Lock } from 'lucide-react';
 import { languageService } from '../../services/languageService';
 import { Language } from '../../data/translations';
+import { WeddingConfig } from '../../types/wedding';
 
 interface NavigationProps {
   monogram: string;
+  couple?: WeddingConfig['couple'];
   onOpenShare: () => void;
   onOpenAdmin: () => void;
   currentMode: 'invitation' | 'admin';
@@ -12,6 +14,7 @@ interface NavigationProps {
 
 export const Navigation: React.FC<NavigationProps> = ({
   monogram,
+  couple,
   onOpenShare,
   onOpenAdmin,
   currentMode,
@@ -66,15 +69,17 @@ export const Navigation: React.FC<NavigationProps> = ({
           {/* Monogram Brand */}
           <a
             href="#hero"
-            className="flex items-center space-x-2.5 group cursor-pointer"
+            className="flex items-center space-x-3 group cursor-pointer"
           >
-            <div className="w-10 h-10 rounded-full border border-amber-400/50 bg-gradient-to-br from-amber-400/20 to-maroon-900/40 flex items-center justify-center shadow-inner group-hover:border-amber-300 transition-colors">
-              <span className="font-serif font-bold text-amber-300 text-sm tracking-wider">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 p-1.5 rounded-full border-2 border-amber-400/60 bg-gradient-to-br from-amber-400/25 via-maroon-900/50 to-amber-950/70 flex items-center justify-center shadow-[0_0_15px_rgba(212,175,55,0.35)] group-hover:border-amber-300 group-hover:scale-105 transition-all">
+              <span className="font-serif font-bold text-amber-300 text-base sm:text-lg tracking-wider drop-shadow-sm">
                 {monogram}
               </span>
             </div>
-            <span className="font-serif tracking-widest text-xs uppercase text-amber-100/90 hidden sm:inline-block font-semibold">
-              {lang === 'ta' ? 'அனன்யா & அர்ஜுன்' : 'Ananya & Arjun'}
+            <span className="font-serif tracking-widest text-xs sm:text-sm uppercase text-amber-100/90 hidden sm:inline-block font-semibold">
+              {lang === 'ta'
+                ? (couple?.tamilBrideName && couple?.tamilGroomName ? `${couple.tamilBrideName} & ${couple.tamilGroomName}` : 'அனன்யா & அர்ஜுன்')
+                : (couple?.brideShortName && couple?.groomShortName ? `${couple.brideShortName} & ${couple.groomShortName}` : 'Ananya & Arjun')}
             </span>
           </a>
 

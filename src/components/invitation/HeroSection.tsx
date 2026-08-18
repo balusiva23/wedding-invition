@@ -4,7 +4,7 @@ import { TempleBell } from '../common/TempleBell';
 import { KolamDivider } from '../common/KolamDivider';
 import { DivineHeaderBackground } from '../common/DivineHeaderBackground';
 import { WeddingConfig, DivinePairThemeId } from '../../types/wedding';
-import { getDivinePairConfig, divinePairsList } from '../../data/divineThemesData';
+import { getDivinePairConfig, divinePairsList, resolveDivinePairInfo } from '../../data/divineThemesData';
 import { Calendar, MapPin, ChevronDown, Sparkles, Heart } from 'lucide-react';
 import { audioService } from '../../services/audioService';
 import { languageService } from '../../services/languageService';
@@ -40,7 +40,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   }, [theme.divinePair]);
 
   const t = languageService.t();
-  const currentDivine = getDivinePairConfig(activeDivinePair);
+  const currentDivine = resolveDivinePairInfo(activeDivinePair, theme.customDivinePair);
 
   const handleEnterClick = () => {
     if (config.music.enabled && !audioService.getIsPlaying()) {
