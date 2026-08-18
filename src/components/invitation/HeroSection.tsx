@@ -312,7 +312,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         )}
 
         {/* Grand Royal Couple Names */}
-        <div className="relative -mt-2 sm:-mt-4 flex flex-col items-center">
+        <div
+          className={`relative flex flex-col items-center transition-all ${
+            centerpieceMode === 'lamp-3d'
+              ? '-mt-4 sm:-mt-8'
+              : 'mt-6 sm:mt-8 md:mt-10 pt-2'
+          }`}
+        >
           <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6">
             <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-b from-amber-100 via-amber-300 to-amber-500 drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
               {brideName}
