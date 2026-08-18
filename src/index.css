@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #7E2230;
+    --secondary: #C59A27;
+    --accent: #D4AF37;
+    --bg-dark: #120508;
+    --bg-light: #FCFBF7;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  /* When Tamil is active */
+  html[lang="ta"], body.lang-ta {
+    font-family: 'Anek Tamil', 'Plus Jakarta Sans', sans-serif;
+  }
+
+  body {
+    background-color: var(--bg-dark, #120508);
+    color: #F7F5EE;
+    overflow-x: hidden;
+    transition: background-color 0.5s ease;
+  }
+
+  .font-tamil {
+    font-family: 'Anek Tamil', 'Mukta Malar', sans-serif;
+  }
+
+  .font-display {
+    font-family: 'Cinzel Decorative', 'Cinzel', serif;
+  }
+
+  .font-serif-tamil {
+    font-family: 'Mukta Malar', 'Cinzel', serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #140508;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #886017;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C59A27;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(-8deg); }
+  100% { transform: rotate(8deg); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
+
+/* South Tamil Nadu Golden Border & Motif utilities */
+.border-gold-gradient {
+  border-image: linear-gradient(to bottom right, #F5D77F, #C59A27, #8B6914) 1;
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+}
+
+.text-gold-shimmer {
+  background: linear-gradient(135deg, #FFF6D6 0%, #F5D061 50%, #D4AF37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   Print Styles for Wedding Patrikai & Invitations
+   ========================================================================== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm;
+  }
+
+  body {
+    background: #FFFDF7 !important;
+    color: #4A0E17 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Hide everything except the print container */
+  header, footer, nav, #hero, #couple, #story, #ceremonies, #events, #family, #gallery, #video, #venue, #travel, #dressCode, #gift, #rsvp, #wishes, .no-print, [role="dialog"] > button, .custom-cursor, canvas, .music-player-root {
+    display: none !important;
+  }
+
+  .print-patrikai-card {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 24px !important;
+    background: #FFFDF7 !important;
+    color: #4A0E17 !important;
+    border: 3px double #982536 !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+
+  .print-patrikai-card * {
+    color: #4A0E17 !important;
+    background-color: transparent !important;
+    text-shadow: none !important;
+  }
+
+  .print-patrikai-card .border-gold {
+    border-color: #C59A27 !important;
+  }
+
+  .print-patrikai-card .bg-highlight {
+    background-color: #FFF8E7 !important;
+    border: 1px solid #E6CA65 !important;
+  }
+}
+
+
